@@ -25,3 +25,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Social login and quiz API link
+
+To get the API data click on https://github.com/aheli94/Social-login-and-Quiz-API which is built on Codeignator.
