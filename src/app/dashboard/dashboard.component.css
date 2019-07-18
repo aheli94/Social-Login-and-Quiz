@@ -1,0 +1,64 @@
+.example-container {
+    width: 100%;
+    height: 100vh;
+    background: #222;
+    opacity: 0.8;
+  }
+  
+  .example-sidenav-content {
+    /* display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center; */
+  }
+
+  .example-sidenav {
+    padding: 0;
+    background-color: #222;
+    border-right: none;
+    width: 10%;
+  }
+  .user{
+      background:#ffb816;
+      color: #fff;
+      padding: 18px;
+      cursor: pointer;
+      font-size: 29px;
+      transition: 0.2s ease;
+  }
+  /* .user:hover{
+      padding-right: 73px;
+  } */
+  .user-2{
+    /* background: #918580; */
+    background: #ffb816;
+    color: #fff;
+    padding: 19px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .custom-height{
+      height: 100vh;
+      width: 100%;
+  }
+  .bg-cl{
+    background-color: #222;
+    position: fixed;
+  }
+  .custom-width{
+    width: 100%;
+  }
+  .quiz-wrap{
+    background: #fff;
+    border-radius: 5px;
+    padding: 40px;
+    padding-top: 20px;
+  }
+  .quiz-wrap h3{
+    text-align: center;
+    font-weight: 600;
+  }
+  .mat-radio-button.mat-accent.ng-star-inserted{
+    display: block !important;
+  }

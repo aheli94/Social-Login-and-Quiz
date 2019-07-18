@@ -1,0 +1,123 @@
+<!-- Code starts -->
+  <mat-drawer-container class="example-container" autosize>
+
+      <!-- sidenav starts -->
+        <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+            <div class="user-2">Username</div>
+        </mat-drawer>
+      <!-- sidenav ends -->
+
+      <!-- main page starts -->
+        <div class="example-sidenav-content">
+          <div class="row custom-width">
+            <div class="col-1 bg-cl">
+                <i class="material-icons user" (click)="drawer.toggle()">person</i>
+            </div>
+
+            <!-- top intro starts -->
+              <div class="container">   
+                <div class="col-11 mt-5 pt-5">
+                  <h1 style="color:#fff; font-weight: 700;">Quiz Module</h1>
+                  <p style="color:#fff; font-weight: 600; margin-top: 30px; line-height: 28px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
+                    took a galley of type and scrambled it to make a type specimen book.</p>   
+                </div>
+              </div>
+            <!-- top intro ends -->
+
+          </div>
+            
+            <!-- quiz starts -->
+              <div class="row custom-width mt-5">
+                <div class="container">
+                  <div class="col-12">
+                    <div class="quiz-wrap mb-5">
+
+                      <!-- choose topic starts -->
+                        <div style="font-size: 20px; font-weight: 500;" *ngIf="!show">
+                          <mat-form-field>
+                            <select matNativeControl required (change)="set()" [(ngModel)]="selectedSet">
+                              <option value="" disabled selected>Choose your topic</option>
+                              <option *ngFor="let v of values" [value]="v">{{v}}</option>
+                            </select>
+                          </mat-form-field>
+                        </div>
+                      <!-- choose topic ends -->
+
+                      <!-- ready test starts -->
+                        <div style="text-align:center; padding:30px; padding-top: 0;" *ngIf="!show">
+                          <p class="" style="font-size:25px; font-weight:700;">ARE YOU READY FOR THE TEST?</p>
+                          <button mat-raised-button [disabled]="!enabledButton" (click)="strtqsn()">Start Test</button> 
+                        </div>
+                      <!-- ready test ends -->
+
+                      <!-- main quiz starts -->
+                        <div>
+                          <h3 *ngIf="!timeup && !alldone && show">{{topic}}</h3>
+                          <span *ngIf="!timeup && !alldone && show" style="text-align:right;float: right; font-weight:700;" [ngStyle]="{'color':timeLeft < 6  ? 'red' : '' }">Time is left {{ minutes }} minutes {{ seconds }} seconds</span><p *ngIf="timeup && !submitted && !alldone && show" style="text-align:center; font-weight:700; color: red; font-size: 30px; padding: 30px;">TIME'S UP</p>
+                          
+                          <!-- quiz questions and options starts -->
+                            <div *ngIf="!timeup && show">
+                              <div class="mt-3" *ngFor="let question of questions; let i=index" >
+                                <div *ngIf="step == i + 1 && !submitted" [attr.data-index]="i">
+                                  <p style="font-weight:700;">{{i+1}}\<span>{{questions.length}}</span></p>
+                                  <p>{{question.questions}}</p>
+                                    <mat-radio-group aria-label="Select an option">
+                                      <mat-radio-button (change)="getAnswer($event, i)" [value]="option" *ngFor="let option of question.options">{{option}}</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                              </div>
+                            </div>
+                          <!-- quiz questions and options ends -->
+
+                          <!-- all buttons starts -->
+                            <div style="text-align:right;" *ngIf="show">
+                              <button mat-raised-button [disabled]="timeLeft > given_time - 1" *ngIf="step != questions.length" (click)="nextqsn(step)">{{ skip ? "Skip" : "Next" }}</button> 
+                              <button mat-raised-button [ngStyle]="getmyStyle()" *ngIf="step == questions.length && !alldone" (click)="showResult()">{{timeup ? "Show Result" : "Submit"}} </button> 
+                            </div>
+                          <!-- all buttons ends -->
+
+                          <!-- show result starts -->
+                            <p class="mt-5 text-center" style="font-size: 30px; font-weight: 700;" *ngIf="submitted">You got {{correct_answer}} out of {{questions.length}} <br><span style="font-size:20px; font-weight: 700;">Percentage {{percentage}}%</span></p> 
+                            <p class="text-center" style="font-size: 20px; font-weight: 700;" *ngIf="submitted">You have taken: {{total_minutes}} minutes {{total_seconds}} seconds</p>
+                        
+                            <div *ngIf="submitted">
+                              <table class="table">
+                                <!-- table title -->
+                                  <thead>
+                                    <tr>
+                                      <th style="width:60%;">Question</th>
+                                      <th>Your Answer</th>
+                                      <th>Correct Answer</th>
+                                      <th>Status</th>
+                                    </tr>
+                                  </thead>
+                                <!-- checking questions, correct answer with your answer -->
+                                  <tbody>
+                                    <tr *ngFor="let question of questions; let i=index">
+                                      <td>{{question.questions}}</td>
+                                      <td>{{question.your_answer ? question.your_answer : "Not Attempt"}}</td>
+                                      <td>{{question.answer}}</td>
+                                      <td style="text-align: center; color:green; font-size: 18px;" *ngIf="question.your_answer == question.answer; else errorBlock"><i class="fa fa-check" aria-hidden="true"></i></td>
+                                    </tr>
+                                  </tbody>
+                                <!-- status signs right or wrong -->
+                                  <ng-template #errorBlock>
+                                      <td style="text-align: center; color:red; font-size: 18px;"><i class="fa fa-times" aria-hidden="true"></i></td>
+                                  </ng-template>
+                              </table>
+                            </div>
+                          <!-- show result ends -->
+                        </div>
+                      <!-- main quiz ends -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- quiz ends -->
+        </div>
+      <!-- main page ends -->
+  </mat-drawer-container>
+<!-- Code ends -->
+
+
+  

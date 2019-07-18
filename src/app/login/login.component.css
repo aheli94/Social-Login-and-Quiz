@@ -1,0 +1,91 @@
+.wrap{
+    padding-top: 150px;
+}
+.form-wrap{
+    width: 50%;
+    background-color: #222;
+    padding: 50px;
+    margin: 0 auto;
+    opacity: 0.8;
+    color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+.logged-wrap{
+    width: 50%;
+    background-color: #222;
+    padding: 50px;
+    margin: 0 auto;
+    opacity: 0.8;
+    color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 10px; 
+}
+.form-group{
+    color: #fff;
+}
+.ontop{
+    position: relative;
+    top: 70px;
+    z-index: 2;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+.wrap-wrap{
+    position: relative;
+    top: 100px;
+    z-index: 2;
+    color: #fff;
+}
+.signin-but{
+    background-color: transparent;
+    width: 100%;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #fff;
+}
+.design{
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.design::before{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 12px;
+}
+.design::after{
+    content: "";
+    width: 100px;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+.cstm-btn{
+    border-radius: 0;
+}
+.bg-transparent {
+    background-color: transparent;
+  }
+  
+  :host {
+    height: 100%;
+  }
+  
+  .photo {
+    object-fit: contain;
+  }
+  
+  .card {
+    width: 20rem;
+    margin: 0 auto;
+  }
